@@ -1,12 +1,11 @@
-let owner = {
-    ownerAvatar: "../images/profile.png",
-    ownerName: "Jana Strassmann",
-    ownerEmail: "batz.mortimer@yahoo.com",
-    ownerStatus: "Active",
-    ownerAccess: "Owner"
-};
-
 let users = [
+    {
+        userAvatar: "../images/profile.png",
+        userName: "Jana Strassmann",
+        userEmail: "batz.mortimer@yahoo.com",
+        userStatus: "Active",
+        userAccess: "Owner"
+    },
     {
         userAvatar: "../images/profile.png",
         userName: "Jube Bowman",
@@ -72,4 +71,4 @@ let users = [
     }
 ];
 
-export { owner, users };
+export { users };
