@@ -1,0 +1,12 @@
+.paginationItemsWrapper{
+    display: inline-flex;
+    /* justify-content: space-between; */
+}
+.paginationItemsWrapper span{
+    border: 1px solid orange;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.prev, .next{
+    background-color: orange;
+}
