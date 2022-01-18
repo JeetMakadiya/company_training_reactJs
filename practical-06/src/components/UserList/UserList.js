@@ -23,20 +23,20 @@ export const UserList = (props) => {
               <>
                 {/* first row for owner */}
                 {index === 0 && (
-                  <tr>
+                  <tr key={index}>
                     <td className="userDetailsWrapper">
                       <img
                         className="profileImg"
-                        src={user.userAvatar}
+                        src={user.avatar}
                         alt="owner_avatar"
                       />
-                      <span className="userName">{user.userName}</span>
-                      <span className="userEmail">{user.userEmail}</span>
+                      <span className="userName">{user.first_name+" "+user.last_name}</span>
+                      <span className="userEmail">{user.email}</span>
                     </td>
                     <td style={{ color: "#04AA6D", fontWeight: "700" }}>
-                      {user.userStatus}
+                      Active
                     </td>
-                    <td>{user.userAccess}</td>
+                    <td>Owner</td>
                     <td>
                       <Icon.Lock
                         size={18}
@@ -47,7 +47,7 @@ export const UserList = (props) => {
                 )}
                 {/* other users row */}
                 {index !== 0 && (
-                  <tr
+                  <tr key={index}
                     onMouseEnter={() => {
                       props.handleHover(user);
                     }}
@@ -58,20 +58,20 @@ export const UserList = (props) => {
                     <td className="userDetailsWrapper">
                       <img
                         className="profileImg"
-                        src={user.userAvatar}
+                        src={user.avatar}
                         alt="owner_avatar"
                       />
-                      <span className="userName">{user.userName}</span>
-                      <span className="userEmail">{user.userEmail}</span>
+                      <span className="userName">{user.first_name+" "+user.last_name}</span>
+                      <span className="userEmail">{user.email}</span>
                     </td>
                     <td className="">
-                      <select className="selectMenu" value={user.userStatus}>
+                      <select className="selectMenu">
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
                       </select>
                     </td>
                     <td className="">
-                      <select className="selectMenu" value={user.userAccess}>
+                      <select className="selectMenu">
                         <option value="Manager">Manager</option>
                         <option value="Read">Read</option>
                       </select>
@@ -91,7 +91,7 @@ export const UserList = (props) => {
         <tfoot>
           <tr>
             <td colSpan={4} className="paginationWrapper">
-              <Pagination/>
+              <Pagination paginationItems={props.paginationItems}/>
             </td>
           </tr>
         </tfoot>

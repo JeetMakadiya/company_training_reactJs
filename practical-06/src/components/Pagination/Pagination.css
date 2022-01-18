@@ -3,10 +3,18 @@
     /* justify-content: space-between; */
 }
 .paginationItemsWrapper span{
-    border: 1px solid orange;
+    border-top: 1px solid orange;
+    border-left: 1px solid orange;
+    border-bottom: 1px solid orange;
     padding: 6px 12px;
     cursor: pointer;
 }
-.prev, .next{
+.paginationItemsWrapper span:last-child{
+    border-right: 1px solid orange;
+}
+.paginationItemsWrapper span:hover{
+    background-color: rgba(255, 165, 0, 0.2);
+}
+.paginationItemsWrapper .active{
     background-color: orange;
 }
