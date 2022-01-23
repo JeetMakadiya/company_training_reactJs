@@ -1,10 +1,10 @@
-import './App.css';
-import { UserListCardWrapper }  from './components/UserListCardWrapper/UserListCardWrapper';
+import "./App.css";
+import { UserListCardWrapper } from "./components/UserListCardWrapper/UserListCardWrapper";
 
 function App() {
   return (
     <>
-      <UserListCardWrapper/>
+      <UserListCardWrapper />
     </>
   );
 }

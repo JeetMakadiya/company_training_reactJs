@@ -30,7 +30,9 @@ export const UserList = (props) => {
                         src={user.avatar}
                         alt="owner_avatar"
                       />
-                      <span className="userName">{user.first_name+" "+user.last_name}</span>
+                      <span className="userName">
+                        {user.first_name + " " + user.last_name}
+                      </span>
                       <span className="userEmail">{user.email}</span>
                     </td>
                     <td style={{ color: "#04AA6D", fontWeight: "700" }}>
@@ -47,7 +49,8 @@ export const UserList = (props) => {
                 )}
                 {/* other users row */}
                 {index !== 0 && (
-                  <tr key={index}
+                  <tr
+                    key={index}
                     onMouseEnter={() => {
                       props.handleHover(user);
                     }}
@@ -61,7 +64,9 @@ export const UserList = (props) => {
                         src={user.avatar}
                         alt="owner_avatar"
                       />
-                      <span className="userName">{user.first_name+" "+user.last_name}</span>
+                      <span className="userName">
+                        {user.first_name + " " + user.last_name}
+                      </span>
                       <span className="userEmail">{user.email}</span>
                     </td>
                     <td className="">
@@ -91,7 +96,7 @@ export const UserList = (props) => {
         <tfoot>
           <tr>
             <td colSpan={4} className="paginationWrapper">
-              <Pagination paginationItems={props.paginationItems}/>
+              <Pagination paginationItems={props.paginationItems} />
             </td>
           </tr>
         </tfoot>
