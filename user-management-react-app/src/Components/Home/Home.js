@@ -16,7 +16,9 @@ export const Home = () => {
       <header className="header">
         <div className="container mainWrapper2">
           <div className="userDetailsWrapper">
-            <span className="userImg">Image</span>
+            <span className="userImg">
+              <img src={userData.userAvatar} alt="user_image" />
+            </span>
             <span className="userDetails">
               {`Hello ${userData.userName}, you are registered with the ${userData.userEmail} 
               and ${userData.userPhone}.`}

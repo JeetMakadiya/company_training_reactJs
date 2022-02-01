@@ -41,7 +41,7 @@
   font-size: 14px;
   margin-bottom: 8px;
 }
-.labelInputWrapper input {
+.labelInputWrapper .formInput {
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.4);
   background-color: blanchedalmond;
@@ -49,6 +49,9 @@
   font-size: 12px;
   border-radius: 2px;
   margin-bottom: 4px;
+}
+.labelInputWrapper .errorFormInput {
+  border: 1px solid red;
 }
 /* Error Styles */
 .errorsWrapper {

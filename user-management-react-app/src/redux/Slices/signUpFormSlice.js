@@ -22,7 +22,7 @@ export const signUpFormSlice = createSlice({
         return {
           isLoggedIn: true,
           userDetails: {
-            userAvatar: "",
+            userAvatar: action.payload.profilePic,
             userName: action.payload.name,
             userEmail: action.payload.email,
             userPhone: action.payload.phoneNo,
