@@ -11,13 +11,14 @@ export const TodoInput = () => {
   //when Enter key is press then it is handle by this function
   const handleKeyDown = (event) => {
     let item = {
-      todoId: new Date().getTime.toString(),
+      todoId: new Date().getTime().toString(),
       todoTitle: inputText,
       todoStatus: false,
     };
     if (event.which === 13) {
       if (inputText !== "") {
         todoStore.addTodoItem(item);
+        console.log(item.todoId);
         setInputText("");
       }
     }
