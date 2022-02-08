@@ -6,7 +6,7 @@ import { setTodoStatus, deleteTodoItem } from "../../Features/slices/todoSlice";
 export const TodoList = () => {
   const dispatch = useDispatch();
   const todoItems = useSelector((state) => state.todo.todoItems);
-  console.log(todoItems);
+
   return (
     <ul className="todoList">
       {todoItems.map((item, index) => {

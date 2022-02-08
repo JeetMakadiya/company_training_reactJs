@@ -3,9 +3,13 @@ import { TodoAddBtn } from "./TodoAddBtn";
 import { TodoInput } from "./TodoInput";
 import { TodoList } from "./TodoList";
 import { TodoDetails } from "./TodoDetails";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTodoData } from "../../Features/thunks/todoThunks";
 
 export const TodoListWrapper = () => {
+  const dispatch = useDispatch();
+  const todoState = useSelector((state) => state.todo);
   //toggle = true or false ##if toggle = true then <TodoAddBtn/> is shown else <TodoInput/> is shown
   const [toggle, setToggle] = useState(true);
 
@@ -21,15 +25,34 @@ export const TodoListWrapper = () => {
     }
   });
 
+  //function which return total todo
+  let getTotalTodo = () => {
+    return todoState.todoItems.length;
+  };
+
+  //function which return completed todo
+  let getCompletedTodo = () => {
+    return todoState.todoItems.filter((item) => item.todoStatus === true)
+      .length;
+  };
+  useEffect(() => {
+    dispatch(fetchTodoData());
+  }, []);
   return (
     <div className="todoListWrapper">
-      <TodoDetails />
+      <TodoDetails totalTodo={getTotalTodo} completedTodo={getCompletedTodo} />
       {toggle === true ? (
         <TodoAddBtn handleToggle={handleToggle} />
       ) : (
         <TodoInput />
       )}
-      <TodoList />
+      {todoState.isLoading ? (
+        <p>Loading...</p>
+      ) : todoState.error === "" ? (
+        <TodoList />
+      ) : (
+        <p>{todoState.error}</p>
+      )}
     </div>
   );
 };

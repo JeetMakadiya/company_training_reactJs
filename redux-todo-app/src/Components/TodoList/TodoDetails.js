@@ -1,10 +1,10 @@
 import "./TodoDetails.css";
 
-export const TodoDetails = () => {
+export const TodoDetails = ({ totalTodo, completedTodo }) => {
   return (
     <div className="todoDetails">
-      <span>Total Todo : </span>
-      <span>Completed Todo : </span>
+      <span>Total Todo : {totalTodo()}</span>
+      <span>Completed Todo : {completedTodo()}</span>
     </div>
   );
 };

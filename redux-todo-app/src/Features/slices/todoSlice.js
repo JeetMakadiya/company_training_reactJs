@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchTodoData } from "../thunks/todoThunks";
 
 export const todoSlice = createSlice({
   name: "todo",
   initialState: {
     todoItems: [],
+    isLoading: false,
+    error: "",
   },
   reducers: {
     addTodoItem(state, action) {
@@ -21,6 +24,27 @@ export const todoSlice = createSlice({
         return item.todoId !== action.payload;
       });
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchTodoData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchTodoData.fulfilled, (state, action) => {
+        let items = action.payload.map((item) => {
+          return {
+            todoId: item.id,
+            todoTitle: item.title,
+            todoStatus: item.completed,
+          };
+        });
+        state.todoItems = items;
+        state.isLoading = false;
+      })
+      .addCase(fetchTodoData.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      });
   },
 });
 
