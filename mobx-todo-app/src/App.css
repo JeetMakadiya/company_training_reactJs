@@ -1,0 +1,7 @@
+.todoListSection {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  padding: 0 70px;
+}
